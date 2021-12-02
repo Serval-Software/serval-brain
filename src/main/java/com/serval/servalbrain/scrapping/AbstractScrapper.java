@@ -4,8 +4,8 @@ import org.jsoup.nodes.Document;
 
 public abstract class AbstractScrapper {
 
-    private final String url;
-    private Document document;
+    protected final String url;
+    protected Document document;
 
     public AbstractScrapper(final String url) {
         this.url = url;
