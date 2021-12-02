@@ -14,8 +14,6 @@ public class DateEventScraper extends AbstractScrapper {
     public DateEventScraper(String url) throws IOException {
         super(url);
         document = Jsoup.connect(url).get();
-        String result = document.toString();
-        System.out.println(document);
     }
 
     private EventUrlPair parseEventUrl(Element eventUrlString) {
@@ -53,6 +51,12 @@ public class DateEventScraper extends AbstractScrapper {
 
         System.out.println(events);
 
+        final String url = events.get(2).getEvents().get(0).getUrl();
+        try {
+            new RescueScrapper(url).scrap();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) throws IOException {
