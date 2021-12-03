@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping()
+@CrossOrigin
 public class MainController {
 
     @Autowired
