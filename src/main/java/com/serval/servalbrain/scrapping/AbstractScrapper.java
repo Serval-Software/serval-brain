@@ -1,14 +1,20 @@
 package com.serval.servalbrain.scrapping;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public abstract class AbstractScrapper {
+import java.io.IOException;
 
+public abstract class AbstractScrapper<T> {
     protected final String url;
-    protected Document document;
 
-    public AbstractScrapper(final String url) {
+    public AbstractScrapper(String url) {
         this.url = url;
     }
-    abstract void scrap();
+
+    protected Document getDocument(final String url) throws IOException {
+        System.out.println(url);
+        return Jsoup.connect(url).get();
+    }
+    abstract public T scrap();
 }

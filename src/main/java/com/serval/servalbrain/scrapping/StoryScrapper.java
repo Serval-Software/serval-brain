@@ -1,10 +1,11 @@
 package com.serval.servalbrain.scrapping;
 
-public class StoryScrapper extends AbstractScrapper {
+/*public class StoryScrapper extends AbstractScrapper {
+    @Override
+    void scrap() { }
+
     public StoryScrapper(String url) {
         super(url);
     }
-
-    @Override
-    void scrap() { }
 }
+*/
