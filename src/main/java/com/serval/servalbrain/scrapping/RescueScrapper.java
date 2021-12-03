@@ -22,20 +22,22 @@ public class RescueScrapper<T extends Rescue> extends AbstractScrapper<T> {
         } catch (IOException e) {
             // e.printStackTrace();
         }
+        String title = "";
+        String pageContent = "";
 
         if(document != null) {
             Element body = document.getElementById("error-page");
             if(body == null) {
                 Elements content = document.getElementById("content").child(0).child(0).children();
-                final String title = content.remove(0).text();
-                final String pageContent = content.text();
+                title = content.remove(0).text();
+                pageContent = content.text();
 
                 System.out.println(new Rescue(title, pageContent));
             } else {
                 System.out.println(String.format("PAGE %s: NULL", url));
             }
         }
-        return null;
+        return (T) new Rescue(title, pageContent);
         // TODO
     }
 }
